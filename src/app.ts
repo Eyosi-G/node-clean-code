@@ -1,0 +1,11 @@
+import express,{Application} from 'express';
+import courseRoute from './routes/course';
+import CourseRepository from './application/course/repository/course_repository';
+import CourseService from './application/course/service/course_service';
+const app:Application = express();
+const port = process.env.PORT || 8080;
+const _courseRepository = new CourseRepository();
+const _courseService =  new CourseService(_courseRepository);
+app.use(express.json());
+app.use(courseRoute(_courseService));
+app.listen(port,()=>console.log(`server started on port ${port}`));

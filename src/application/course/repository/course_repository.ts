@@ -26,9 +26,11 @@ export default class InMemoryCourseRepository implements CourseRepository{
        this.courses = courses;
     }
     createCourse(course: Course): void {
-        const _course = this.courses.find((course)=>{
-            return course.id = course.id;
+        const _course = this.courses.find((_course_)=>{
+            return _course_.id == course.id;
         });
+        
+        
         if(_course){
             throw new Error("course already exist");
         }

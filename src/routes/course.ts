@@ -1,9 +1,7 @@
 import express from 'express';
 import courseController from "../controllers/course_controller";
 import CourseService from '../application/course/service';
-const courseRoute = (courseService:CourseService) => {
-  console.log(courseService);
-  
+const courseRoute = (courseService:CourseService) => {  
   const controller = new courseController(courseService);
   const router = express.Router();
   router
